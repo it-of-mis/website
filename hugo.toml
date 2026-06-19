@@ -1,0 +1,27 @@
+baseURL = "https://www.mastersinternationalschool.org/"
+title = "Masters International School"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+enableRobotsTXT = true
+
+[languages]
+  # Hugo v0.158+ : use `label` (not languageName) and `locale` (not languageCode);
+  # the old keys emit deprecation warnings. Verified clean on v0.162.1.
+  [languages.en]
+    label = "English"
+    locale = "en-US"
+    weight = 1
+    title = "Masters International School"
+  [languages.zh]
+    label = "中文"
+    locale = "zh-CN"
+    weight = 2
+    title = "曼谷国际学校"
+  [languages.th]
+    label = "ไทย"
+    locale = "th-TH"
+    weight = 3
+    title = "โรงเรียนนานาชาติ"
+
+[menus]
+  # intentionally empty in Phase 1

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} · {{ .Site.Title }}{{ end }}</title>
+</head>
+<body>
+  <header>
+    <a href="{{ .Site.Home.RelPermalink }}">{{ .Site.Title }}</a>
+    <nav aria-label="languages">
+      {{ range .Translations }}<a href="{{ .RelPermalink }}">{{ .Language.Label }}</a>{{ end }}
+    </nav>
+  </header>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>
