@@ -28,6 +28,15 @@ assert_file public/pages/about/index.html
 assert_file public/zh/pages/about/index.html
 assert_file public/th/pages/about/index.html
 
+# Decap CMS admin shipped as static files (Hugo copies static/ verbatim, no minify)
+assert_file public/admin/index.html
+assert_file public/admin/config.yml
+# admin config binds to the right repo + OAuth bridge (static file: exact text, no minify)
+assert_grep public/admin/config.yml 'repo: it-of-mis/website'
+assert_grep public/admin/config.yml 'base_url: https://bots\.mastersinternationalschool\.org'
+assert_grep public/admin/config.yml 'auth_endpoint: cms/auth'
+assert_grep public/admin/config.yml 'publish_mode: editorial_workflow'
+
 # correct lang attribute per locale.
 # NOTE: `hugo --minify` strips quotes around attribute values (lang="en" -> lang=en),
 # so every attribute assertion is quote-tolerant (ERE: "? = optional quote). Verified.

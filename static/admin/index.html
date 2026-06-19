@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex" />
+    <title>MIS Content Manager</title>
+    <!-- Explicit + relative: resolves against this file at /admin/ AND /website/admin/ -->
+    <link href="config.yml" type="text/yaml" rel="cms-config-url" />
+  </head>
+  <body>
+    <!-- Exact-pinned bundle (no caret) + Subresource Integrity, so a compromised
+         CDN cannot serve altered JS. The sha384 hash is computed in Step 3a. -->
+    <script
+      src="https://unpkg.com/decap-cms@3.14.1/dist/decap-cms.js"
+      integrity="sha384-K+E/B3QG3FJrtRXoyUjME4ilx71pYGyrvAVxYvd/p0zCPuXsc3eoEuSzUW3Ke63V"
+      crossorigin="anonymous"></script>
+  </body>
+</html>

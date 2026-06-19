@@ -1,0 +1,63 @@
+backend:
+  name: github
+  repo: it-of-mis/website
+  branch: main
+  base_url: https://bots.mastersinternationalschool.org
+  auth_endpoint: cms/auth
+  cms_label_prefix: decap-cms/
+
+publish_mode: editorial_workflow
+
+# Subpath today (GitHub Pages); custom domain at DNS cutover. Affects only
+# the "go to site" / preview links, never editing.
+site_url: https://it-of-mis.github.io/website
+display_url: https://it-of-mis.github.io/website
+
+# Media uploads are not a v1 focus. public_folder is root-relative (no /website/
+# prefix); Hugo resolves the prefix at render time. Revisit at DNS cutover.
+media_folder: static/uploads
+public_folder: /uploads
+
+# ASCII kebab-case filenames. Note: zh/th titles sanitize to empty under ascii —
+# editors set an explicit Latin slug for non-English-titled entries.
+slug:
+  encoding: ascii
+  clean_accents: true
+
+# No JS preview templates are registered for this Hugo site; disable the pane.
+editor:
+  preview: false
+
+i18n:
+  structure: multiple_files
+  locales: [en, zh, th]
+  default_locale: en
+
+collections:
+  - name: news
+    label: News
+    label_singular: News post
+    folder: content/news
+    create: true
+    slug: "{{slug}}"
+    format: yaml-frontmatter
+    # Exclude the Hugo section index (content/news/_index.<lang>.md): it lacks `type`.
+    filter: { field: type, value: post }
+    i18n: true
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Date, name: date, widget: datetime, i18n: duplicate }
+      - { label: Type, name: type, widget: hidden, default: post }
+      - { label: Body, name: body, widget: markdown, i18n: true }
+
+  - name: pages
+    label: Pages
+    label_singular: Page
+    folder: content/pages
+    create: true
+    slug: "{{slug}}"
+    format: yaml-frontmatter
+    i18n: true
+    fields:
+      - { label: Title, name: title, widget: string, i18n: true }
+      - { label: Body, name: body, widget: markdown, i18n: true }
