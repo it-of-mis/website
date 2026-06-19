@@ -45,8 +45,8 @@ aws lightsail get-instances --profile mis --region ap-southeast-1 --output table
   (`zitadel/website-oidc-resources.md`). Secrets are gitignored there — never copy them here.
 
 ### Repository & hosting
-- GitHub repo: **`it-of-mis/website`** (public).
-- Hosting: **GitHub Pages**, built by **GitHub Actions** (official Hugo workflow).
+- GitHub repo: **`it-of-mis/website`** (public). Live (Phase 1): https://it-of-mis.github.io/website/
+- Hosting: **GitHub Pages**, built by **GitHub Actions** (`.github/workflows/deploy.yml`); push to `main` redeploys. Build is warning-gated (`--panicOnWarning`).
 - Languages: **`en` (primary)**, `zh`, `th`; `zh-Hant` optional/reserved.
 
 ---
