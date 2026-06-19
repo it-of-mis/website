@@ -30,9 +30,10 @@ assert_grep public/index.html '<html lang="?en'
 assert_grep public/zh/index.html '<html lang="?zh'
 assert_grep public/th/index.html '<html lang="?th'
 
-# the language switcher actually links the OTHER locales (deliverable, not just files)
-assert_grep public/index.html 'href="?/zh/"?'
-assert_grep public/index.html 'href="?/th/"?'
+# the language switcher actually links the OTHER locales (deliverable, not just files).
+# Pattern is baseURL-agnostic: matches /zh/ or /website/zh/ (Pages subpath case).
+assert_grep public/index.html 'href="?[^"'"'"'"]*/zh/"?'
+assert_grep public/index.html 'href="?[^"'"'"'"]*/th/"?'
 
 # localized content actually rendered (visible text survives minify)
 assert_grep public/index.html 'Masters International School'
