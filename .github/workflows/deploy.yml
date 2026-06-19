@@ -33,7 +33,7 @@ jobs:
         uses: actions/configure-pages@v6
       - name: Build and verify
         run: |
-          hugo --gc --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+          hugo --gc --minify --panicOnWarning --baseURL "${{ steps.pages.outputs.base_url }}/"
           SKIP_BUILD=1 bash scripts/check-build.sh
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

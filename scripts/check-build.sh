@@ -23,6 +23,11 @@ assert_file public/news/welcome/index.html
 assert_file public/zh/news/welcome/index.html
 assert_file public/th/news/welcome/index.html
 
+# the about singleton in every locale
+assert_file public/about/index.html
+assert_file public/zh/about/index.html
+assert_file public/th/about/index.html
+
 # correct lang attribute per locale.
 # NOTE: `hugo --minify` strips quotes around attribute values (lang="en" -> lang=en),
 # so every attribute assertion is quote-tolerant (ERE: "? = optional quote). Verified.
